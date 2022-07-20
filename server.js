@@ -13,6 +13,9 @@ const app = express();
 const MemoryStore = require("memorystore")(session);
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const disbut = require('discord-buttons')
+disbut(client)
+const { MessageMenuOption, MessageMenu } = require("discord-buttons");
 const { Database } = require("quickmongo");
 const db = require("quick.db")
 const db1 = new Database(config.database);
