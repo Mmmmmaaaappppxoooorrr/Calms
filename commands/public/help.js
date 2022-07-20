@@ -16,9 +16,8 @@ module.exports = {
         const embed = new Discord.MessageEmbed() 
         .setDescription(`Hello ${message.author.username}, If You have suggestion or anything else **[Join Onyx Support Server](https://discord.gg/AP4DHe7HAC)**\nThe Bot Prefix Is: **+**\n\nIf You need to see a category wih their Commands Click On The **Select Menu**!`)
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("🗂️ • Categories:", `**🌐 | General**\n**⚙️ | Moderation**\n**🐸 | Funny**\n**🌀 | Gif**\n**🖼️ | Photo**\n**🖋️ | Text**\n**🎈 | Emote**`)              
+        .addField("Categories:", `**🌐 | General**\n**⚙️ | Moderation**\n**🐸 | Funny**\n**🌀 | Gif**\n**🖼️ | Photo**\n**🖋️ | Text**\n**🎈 | Emote**`)              
         .setColor(Color) 
-        .setFooter(`Requester: ${message.author.username}`)
         .setFooter('Home Page' , client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
 
