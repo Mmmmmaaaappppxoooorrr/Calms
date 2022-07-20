@@ -14,12 +14,12 @@ module.exports = {
     const prefix = db.get(`guild_${message.guild.id}_prefix`) || '+';
       //--------------------------------------S T A R T---------------------------------------
         const embed = new Discord.MessageEmbed() 
-         .setTitle(`Hello`) 
+        .setDescription(`Hello ${message.author.username}, If You have suggestion or anything else [Join Onyx Support Server](https://discord.gg/AP4DHe7HAC)`)
+        .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
         .addField("Categories:", `**🌐 | General**\n**⚙️ | Moderation**\n**🐸 | Funny**\n**🌀 | Gif**\n**🖼️ | Photo**\n**🖋️ | Text**\n**🎈 | Emote**`)
         .addField("Prefix:", `+`)
         .addField("Commands:", `Select a category`)
-        .setColor(Color)        
-        .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
+        .setColor(Color) 
         .setFooter(`Requester: ${message.author.username}`)
         .setFooter('Home Page' , client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
