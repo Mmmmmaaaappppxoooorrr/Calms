@@ -14,9 +14,9 @@ module.exports = {
     const prefix = db.get(`guild_${message.guild.id}_prefix`) || '+';
       //--------------------------------------S T A R T---------------------------------------
         const embed = new Discord.MessageEmbed() 
-         .setTitle(`Hello :wave:`) 
+         .setTitle(`Hello`) 
         .addField("Categories:", `🏠 | Home\n🌐 | General\n⚙️ | Moderation\n🐸 | Funny\n🌀 | Gif\n🖼️ | Photo\n🖋️ | Text\n🎈 | Emote`)
-        .addField("Prefix:", `${prefix}`)
+        .addField("Prefix:", `+`)
         .addField("Commands:", `Select a category`)
         .setColor(Color)        
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
