@@ -15,7 +15,7 @@ module.exports = {
       //--------------------------------------S T A R T---------------------------------------
         const embed = new Discord.MessageEmbed() 
          .setTitle(`Hello`) 
-        .addField("Categories:", `🏠 | Home\n🌐 | General\n⚙️ | Moderation\n🐸 | Funny\n🌀 | Gif\n🖼️ | Photo\n🖋️ | Text\n🎈 | Emote`)
+        .addField("Categories:", `**🌐 | General**\n**⚙️ | Moderation**\n**🐸 | Funny**\n**🌀 | Gif**\n**🖼️ | Photo**\n**🖋️ | Text**\n**🎈 | Emote**`)
         .addField("Prefix:", `+`)
         .addField("Commands:", `Select a category`)
         .setColor(Color)        
