@@ -1,203 +1,105 @@
-const Discord = require('discord.js');
+const ButtonPages = require('discord-button-pages');
+const { MessageEmbed, Discord, Client } = require('discord.js')
+const disbutpages = require("discord-embeds-pages-buttons")
 const disbut = require("discord-buttons");
-const { MessageMenuOption, MessageMenu } = require("discord-buttons");
-const { MessageButton } = require("discord-buttons")
-const { MessageActionRow } = require("discord-buttons")
+const MessageButton = require("discord-buttons");
+const { readdirSync } = require("fs");
 const Color = "#303136";
-const db = require("quick.db")
-const language = "en"
 
-module.exports = {
-  name: "help",
-   aliases: ["h"],
+  module.exports = {
+    name: "help",
+    description: 'Botun Geçikme Değeri',
+    options: [],
   run: async (client, message, args ) => {
-    const prefix = db.get(`guild_${message.guild.id}_prefix`) || '+';
-      //--------------------------------------S T A R T---------------------------------------
-        const embed = new Discord.MessageEmbed() 
-        .setDescription(`Hello ${message.author.username}, If You have suggestion or anything else **[Join Onyx Support Server](https://discord.gg/AP4DHe7HAC)**\nThe Bot Prefix Is: **+**\n\nIf You need to see a category with their Commands Click On The **Select Menu**!`)
-        .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Categories:", `**🌐 | General**\n**⚙️ | Moderation**\n**🐸 | Funny**\n**🌀 | Gif**\n**🖼️ | Photo**\n**🖋️ | Text**\n**🎈 | Emote**`)              
-        .setColor(Color) 
-        .setFooter('Home/menu Page' , client.user.displayAvatarURL({ dynamic: true}))
-        .setTimestamp()
+    if (!args[0]) {
+      let categories = [];
 
-        const embed1 = new Discord.MessageEmbed()
-        .setTitle("❯ General Category:")
-        .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands:", `\`avatar, stats, github, help, links, ping, roleinfo, serverinfo, userinfo\``)
+      readdirSync("./commands/").forEach((dir) => {
+        const commands = readdirSync(`./commands/${dir}/`).filter((file) =>
+          file.endsWith(".js")
+        );
+
+        const cmds = commands.map((command) => {
+          let file = require(`../../commands/${dir}/${command}`);
+
+          if (!file.name) return "No command name.";
+
+          let name = file.name.replace(".js", "");
+
+          return `\`${name}\``;
+        });
+
+        let data = new Object();
+
+        data = {
+          name: dir.toUpperCase(),
+          value: cmds.length === 0 ? "In progress." : cmds.join(", "),
+        };
+
+        categories.push(data);
+      });
+
+      const help = new MessageEmbed()
+        .setTitle("- Help Menu Commands:")
+        .addFields(categories)
+        .setDescription(`The bot prefix is: [ **+** ]`)
+        .setFooter(`To see command descriptions or inforamtion, type: .help [Command Name]`, client.user.displayAvatarURL())
+        .setThumbnail(client.user.displayAvatarURL())
         .setColor(Color)
-        .setFooter('First Page', client.user.displayAvatarURL({ dynamic: true}))
-        .setTimestamp()
-      
-         const embed2 = new Discord.MessageEmbed()
-        .setTitle("❯ Moderation Category:")
-        .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands:", `\`addrole, ban, bans, channels, channelinfo, purge, hide, kick, lock, mute, rmvrole, role, roles, nick, slowmode, unban, unhide, unlock, unmute, vkick\``)
-        .setColor(Color)
-        .setFooter('second Page', client.user.displayAvatarURL({ dynamic: true}))
-        .setTimestamp()
 
-        
-        const embed3 = new Discord.MessageEmbed()
-        .setTitle("❯ Funny Category:")
-        .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands:", `\`baka, clyde, cuddle, dance, deepfry, dicksize, hug, joke, pat, motivation\``)
-        .setColor(Color)
-        .setFooter('third Page', client.user.displayAvatarURL({ dynamic: true}))
-        .setTimestamp()
+      message.channel.send(help);
+    } else {
+      const command =
+        client.commands.get(args[0].toLowerCase()) ||
+        client.commands.find(
+          (c) => c.aliases && c.aliases.includes(args[0].toLowerCase())
+        );
 
-      const embed4 = new Discord.MessageEmbed()
-        .setTitle("❯ Gif Category:")
-        .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands:", `\`boy\`, \`girl\`, \`anime\`, \`animal\`, \`couple\`, \`emoji\`, \`baby\``)
-        .setColor(Color)
-        .setFooter('fourth Page', client.user.displayAvatarURL({ dynamic: true}))
-        .setTimestamp()
-               
-        const embed5 = new Discord.MessageEmbed()
-        .setTitle("❯ Photo Category:")
-        .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands:", `\`pboy\`, \`pgirl\`, \`panimal\`, \`pbaby\`, \`pemoji\``)
-        .setColor(Color)
-        .setFooter('fiveth Page', client.user.displayAvatarURL({ dynamic: true}))
-        .setTimestamp()
-      
-        const embed6 = new Discord.MessageEmbed()
-         .setTitle("❯ Text Category:")
-        .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands:", `\`textenglish, textkurdish, textarabic, textpersian, textturkish\``)
-        .addField("Aliases:", `\`te, tk, ta, tp, tt\``)
-        .setColor(Color)
-        .setFooter('sixth Page', client.user.displayAvatarURL({ dynamic: true}))
-        .setTimestamp()
+      if (!command) {
+        const invailed = new MessageEmbed()
+          .setTitle(`Invalid command! Use \`+help\` for all of my commands!`)
+          .setColor(Color);      
 
-        
-        const embed7 = new Discord.MessageEmbed()
-        .setTitle("❯ Emote Category:")
-        .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands:", `\`‌add-emoji, add-these, emoji-info, emojis-list, emojistats, emojis, jumbo, remove-emoji, remove-these, rename-emoji\``)
-        .setColor(Color)
-        .setFooter('seventh Page', client.user.displayAvatarURL({ dynamic: true}))
-        .setTimestamp()
-
-        const expired = new Discord.MessageEmbed()
-        .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .setDescription(`❯ This Help Menu is expired!`)
-        .addField("Retype:", `\`${prefix}help\` To Do Again!`)
-        .setColor(Color)      
-        .setTimestamp()
-        
-      
-        //-----------------------------OPTIONS----------------------
-
-        let option1 = new MessageMenuOption()
-        .setLabel('General')
-        .setEmoji('🌐')
-        .setValue('option1')
-        .setDescription('Click To see General Commands!')
-
-        let option2 = new MessageMenuOption()
-        .setLabel('Moderation')
-        .setEmoji('⚙️')
-        .setValue('option2')
-        .setDescription('Click To see moderation Commands!')
-
-        let option3 = new MessageMenuOption()
-        .setLabel('Funny')
-        .setEmoji('🐸')
-        .setValue('option3')
-        .setDescription('Click To see funny Commands!')
-
-        let gif = new MessageMenuOption()
-        .setLabel('Gif')
-        .setEmoji('🌀')
-        .setValue('gif')
-        .setDescription('Click To see gif Commands!!')
-
-        let pic = new MessageMenuOption()
-        .setLabel('Photo')
-        .setEmoji('🖼️')
-        .setValue('pic')
-        .setDescription('Click To see pic Commands!!')
-
-        let home = new MessageMenuOption()
-        .setLabel('Home')
-        .setEmoji('🏠')
-        .setValue('home')
-        .setDescription('Return To Home')
-
-        let text = new MessageMenuOption()
-        .setLabel('Text')
-        .setEmoji('🖋️')
-        .setValue('text')
-        .setDescription('Click To see text Commands!')
-
-        let emote = new MessageMenuOption()
-        .setLabel('Emote')
-        .setEmoji('🎈')
-        .setValue('emote')
-        .setDescription('Click To see Emote Commands!')
-
-
-    let select = new MessageMenu()
-        .setID('selector')
-        .setPlaceholder('Please Select a Category!')
-        .setMaxValues(1)
-        .setMinValues(1)
-        .addOptions(home, option1, option2, option3, gif, pic, text, emote)
-      
-        //-----------------------------OPTIONS----------------------
-
-    const Sendmenu = await message.channel.send(embed, select);
-    const filter = ( button ) => message.guild;
-    let collector = Sendmenu.createMenuCollector(filter, { time : 150000 });
-    collector.on("collect", (b, menu) => {
-      if(b.clicker.id !== message.author.id) return b.reply.send(`:x: <@${b.clicker.id}> you can't use that!`, true)
-        if(b.values[0] == "option1") {
-            Sendmenu.edit(embed1, select, true)
-        }
-
-        if(b.values[0] == "option2") {
-            Sendmenu.edit(embed2, select, true)
-        }
-
-        if(b.values[0] == "option3") {
-            Sendmenu.edit(embed3, select, true)
-        }
-
-        if(b.values[0] == "gif") {
-          Sendmenu.edit(embed4, select, true)
-        }
-
-        if(b.values[0] == "pic") {
-          Sendmenu.edit(embed5, select, true)
-        }
-
-        if(b.values[0] == "text") {
-          Sendmenu.edit(embed6, select)
-        }
-
-        if(b.values[0] == "emote") {
-          Sendmenu.edit(embed7, select)
-        }
-
-        if(b.values[0] == "home") {
-          Sendmenu.edit(embed, select, true)
-        }
-
-        b.reply.defer();
-
-    collector.on("end", (b) => {
-        Sendmenu.edit(expired)
-    })
-    })
- //------------------------EVENT-----------------------------   
-    /*client.on('clickMenu', (menu) => {
-      if (menu.message.id === selector) {
-        if (menu.clicker.user.id === message.author.id) menuselection(menu);
-        else menu.reply.send(`:x: You are not allowed to do that! Only: <@${cmduser.id}>`, true);
+      message.channel.send(invailed);
       }
-    });*/
+
+
+      const embed = new MessageEmbed()
+        .setTitle("Command Details:")
+        .setThumbnail(client.user.displayAvatarURL())
+        .addField("Prefix:", `\`+\``)
+        .addField(
+          "Command:",
+          command.name ? `\`${command.name}\`` : "No name for this command."
+        )
+        .addField(
+          "Aliases:",
+          command.aliases
+            ? `\`${command.aliases.join("`, `")}\``
+            : "No aliases for this command."
+        )
+        .addField(
+          "Usage:",
+          command.usage
+            ? `\`+${command.name} ${command.usage}\``
+            : `\`+${command.name}\``
+        )
+        .addField(
+          "Description:",
+          command.description
+            ? command.description
+            : "No description for this command."
+        )
+        .setFooter(
+          `Requester: ${message.author.tag}`,
+          message.author.displayAvatarURL({ dynamic: true })
+        )
+        .setTimestamp()
+        .setColor(Color);
+   
+
+
+      message.channel.send(embed);
+    }
   }
 }
-
