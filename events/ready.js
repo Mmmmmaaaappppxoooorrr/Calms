@@ -6,4 +6,3 @@ const db = new Database(config.database);
    client.user.setPresence({ activity: { name: `+help`, type: "PLAYING" }, status: "online" });
       
    }
-   
