@@ -30,12 +30,12 @@ const stats = new Discord.MessageEmbed()
 .setThumbnail(client.user.displayAvatarURL()) 
 .setTitle("Statistics - 📊")
 .setDescription(`Servers: **${client.guilds.cache.size}**\nBot Id: **${client.user.id}**\nCommands Count: **${client.commands.size}**\nBot Created At: **${created}**\nPing: **${Math.round(client.ws.ping)}**ms\nUptime: **${duration1}**\n\nTotal Memory: **${(os.totalmem() / 1024 / 1024).toFixed(2)}** Mbps\nFree Memory: **${(os.freemem() / 1024 / 1024).toFixed(2)}** Mbps\nHeap Total: **${(process.memoryUsage().heapTotal / 1024 / 1024).toFixed(2)}** Mbps\nHeap Usage: **${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}** Mbps`)
-.addField("Owner & Developer:", `Bot Owner: **@Clever.#0751**\nBot Developer:‌ **@Matheros#2989**`)
+.addField("Owner & Developer:", `Bot Owner: **@Clever.#0751**\nBot Developer:‌ **<@743887896481628190>**`)
 
       let button1 = new MessageButton()
        .setStyle('url')
-       .setURL('https://discord.gg/AP4DHe7HAC') 
-       .setLabel('Onyx Offical Server')
+       .setURL('https://discord.gg/X8jjwVbZvd') 
+       .setLabel('Calms Offical Server')
 
 
       let row1 = new MessageActionRow()
