@@ -1,6 +1,6 @@
 {
-  "TOKEN": "ODAwNDQyMjQzNjk3MjEzNDQy.GuOL4a.n_aQskJSTWTlN2FYCbvLCRxG_v-DaGuim5b908",
+  "TOKEN": "OTE0MDgyMzE3MzQ0MDU5NDAy.GkEb_E.oFHIYnqn5JE0tFYc_tp9D_petB21VaNfK9PBcY",
   "color": "#303136",
-  "database": "mongodb+srv://new:onyx1230@cluster0.srk2y.mongodb.net/?retryWrites=true&w=majority",
-  "database2": "mongodb+srv://new:onyx1230@cluster0.srk2y.mongodb.net/?retryWrites=true&w=majority"
+  "database": "mongodb+srv://mapxor:mapxor@cluster0.qbz1mvz.mongodb.net/?retryWrites=true&w=majority",
+  "database2": "mongodb+srv://mapxor:mapxor@cluster0.qbz1mvz.mongodb.net/?retryWrites=true&w=majority"
 }
