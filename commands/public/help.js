@@ -57,7 +57,7 @@ const Color = "#303136";
 
       if (!command) {
         const invailed = new MessageEmbed()
-          .setTitle(`Invalid command! Use \`+help\` for all of my commands!`)
+          .setTitle(`Invalid command! Use \`>help\` for all of my commands!`)
           .setColor(Color);      
 
       message.channel.send(invailed);
@@ -67,7 +67,7 @@ const Color = "#303136";
       const embed = new MessageEmbed()
         .setTitle("Command Details:")
         .setThumbnail(client.user.displayAvatarURL())
-        .addField("Prefix:", `\`+\``)
+        .addField("Prefix:", `\`>\``)
         .addField(
           "Command:",
           command.name ? `\`${command.name}\`` : "No name for this command."
