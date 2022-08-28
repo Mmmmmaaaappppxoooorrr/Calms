@@ -13,7 +13,7 @@ if (message.author.bot) return;
       
 var prefix = await db1.fetch(`prefix.${message.guild.id}`)
 
-if(!prefix) prefix = "+"
+if(!prefix) prefix = ">"
   
 if (message.content.indexOf(prefix) !== 0) return;
   
