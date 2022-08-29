@@ -1,8 +1,6 @@
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 const { Color, Prefix } = require("../../config.js");
-const { MessageButton } = require('discord-buttons');
-const {MessageActionRow} = require('discord-buttons');
 module.exports = {
   name: "help",
   aliases: ["h"],
