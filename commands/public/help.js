@@ -42,7 +42,7 @@ const Color = "#303136";
       const help = new MessageEmbed()
         .setTitle("- Help Menu Commands:")
         .addFields(categories)
-        .setDescription(`The bot prefix is: [ **+** ]`)
+        .setDescription(`The bot prefix is: [ **>** ]`)
         .setFooter(`To see command descriptions or inforamtion, type: .help [Command Name]`, client.user.displayAvatarURL())
         .setThumbnail(client.user.displayAvatarURL())
         .setColor(Color)
