@@ -72,24 +72,18 @@ const Color = "#9700ff";
           "Command:",
           command.name ? `\`${command.name}\`` : "No name for this command."
         )
-        .addField(
-          "Aliases:",
-          command.aliases
-            ? `\`${command.aliases.join("`, `")}\``
-            : "No aliases for this command."
-        )
-        .addField(
-          "Usage:",
-          command.usage
-            ? `\`+${command.name} ${command.usage}\``
-            : `\`+${command.name}\``
-        )
-        .addField(
-          "Description:",
-          command.description
-            ? command.description
-            : "No description for this command."
-        )
+       .setDesprtion(`
+      
+Emote
+add-emoji, add-these, emojiinfo, emojis-list, emojistats, emojis, jumbo, remove-emoji, remove-these, rename-emoji
+FUN
+clyde, cuddle, Dance, deepfry, dicksize, hug, joke, meme, motivation, dm, pat, sayGIFanimal, anime, baby, boy, couple, emoji, girl
+MODERATION
+addrole, ban, bans, purge, rmvrole, nick, unbanPHOTOpanimal, pbaby, pboy, pemoji, pgirl
+PUBLIC
+avatar, help, links, ping, roleinfo, serverinfo, stats, userinfo
+TEXT
+textarabic, textenglish, textkurdish`)
         .setFooter(
           `Requester: ${message.author.tag}`,
           message.author.displayAvatarURL({ dynamic: true })
