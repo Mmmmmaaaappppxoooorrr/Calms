@@ -68,10 +68,6 @@ const Color = "#9700ff";
         .setTitle("Command Details:")
         .setThumbnail(client.user.displayAvatarURL())
         .addField("Prefix:", `\`>\``)
-        .addField(
-          "Command:",
-          command.name ? `\`${command.name}\`` : "No name for this command."
-        )
        .setDesprtion(`
       
 Emote
