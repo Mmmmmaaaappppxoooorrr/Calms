@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const db = require("quick.db")
 const language = "en";
-let prefix = "+"
+let prefix = ">"
 //ban
 module.exports = {
     name: "ban",
