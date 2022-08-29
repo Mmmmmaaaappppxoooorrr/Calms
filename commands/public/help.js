@@ -4,7 +4,7 @@ const disbutpages = require("discord-embeds-pages-buttons")
 const disbut = require("discord-buttons");
 const MessageButton = require("discord-buttons");
 const { readdirSync } = require("fs");
-const Color = "#303136";
+const Color = "#9700ff";
 
   module.exports = {
     name: "help",
