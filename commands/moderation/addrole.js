@@ -41,7 +41,11 @@ module.exports = {
 
         )
         if (rMember.roles.highest.comparePositionTo(message.guild.me.roles.highest) >= 0) return  message.channel.send(
-            if(!args[0]) return message.reply(`Please say a mesage!`)
+            new MessageEmbed()
+             .setColor(color)
+             .setAuthor(message.author.tag)
+             .setDescription('**Cannot Add Role To This User!**')
+
         )
 
         let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[1]) || message.guild.roles.cache.find(rp => rp.name.toLowerCase() === args.slice(1).join(' ').toLocaleLowerCase());
