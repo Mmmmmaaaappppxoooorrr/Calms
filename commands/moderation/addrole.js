@@ -5,7 +5,7 @@ const { color } = require("../../config.json");
 
 module.exports = {
   name: "addrole",
-  aliases: ["giverole"],
+  aliases: ["giverole", "arole", "roleadd"],
   description: "give role to someone",
   usage: "addrole @user @role",
   run: async (client, message, args) => {
@@ -41,11 +41,7 @@ module.exports = {
 
         )
         if (rMember.roles.highest.comparePositionTo(message.guild.me.roles.highest) >= 0) return  message.channel.send(
-            new MessageEmbed()
-            .setColor(color)
-            .setAuthor(message.author.tag)
-            .setDescription('**Cannot Add Role To This User!**')
-
+            if(!args[0]) return message.reply(`Please say a mesage!`)
         )
 
         let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[1]) || message.guild.roles.cache.find(rp => rp.name.toLowerCase() === args.slice(1).join(' ').toLocaleLowerCase());
@@ -53,7 +49,7 @@ module.exports = {
             new MessageEmbed()
             .setColor(color)
             .setAuthor(message.author.tag)
-            .setDescription("**Please Enter A Role!**")
+            .setDescription("** <:Reds_disLike:1013714089412923434> Please Enter A Role!**")
 
         )
 
@@ -61,7 +57,7 @@ module.exports = {
             new MessageEmbed()
             .setColor(color)
             .setAuthor(message.author.tag)
-            .setDescription("**Could Not Find That Role!**")
+            .setDescription("** <:Reds_disLike:1013714089412923434> Could Not Find That Role!**")
 
         )
 
@@ -69,7 +65,7 @@ module.exports = {
             new MessageEmbed()
             .setColor(color)
             .setAuthor(message.author.tag)
-            .setDescription("**Cannot Add That Role To The User!**")
+            .setDescription("** <:Reds_disLike:1013714089412923434> Cannot Add That Role To The User!**")
 
         )
         if (message.guild.me.roles.highest.comparePositionTo(role) <= 0) return  message.lineReplyNoMention(
