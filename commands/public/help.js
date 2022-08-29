@@ -48,48 +48,7 @@ const Color = "#9700ff";
         .setColor(Color)
 
       message.channel.send(help);
-    } else {
-      const command =
-        client.commands.get(args[0].toLowerCase()) ||
-        client.commands.find(
-          (c) => c.aliases && c.aliases.includes(args[0].toLowerCase())
-        );
 
-      if (!command) {
-        const invailed = new MessageEmbed()
-          .setTitle(`Invalid command! Use \`>help\` for all of my commands!`)
-          .setColor(Color);      
-
-      message.channel.send(invailed);
-      }
-
-
-      const embed = new MessageEmbed()
-        .setTitle("Command Details:")
-        .setThumbnail(client.user.displayAvatarURL())
-        .addField("Prefix:", `\`>\``)
-       .setDesprtion(`
-      
-Emote
-add-emoji, add-these, emojiinfo, emojis-list, emojistats, emojis, jumbo, remove-emoji, remove-these, rename-emoji
-FUN
-clyde, cuddle, Dance, deepfry, dicksize, hug, joke, meme, motivation, dm, pat, sayGIFanimal, anime, baby, boy, couple, emoji, girl
-MODERATION
-addrole, ban, bans, purge, rmvrole, nick, unbanPHOTOpanimal, pbaby, pboy, pemoji, pgirl
-PUBLIC
-avatar, help, links, ping, roleinfo, serverinfo, stats, userinfo
-TEXT
-textarabic, textenglish, textkurdish`)
-        .setFooter(
-          `Requester: ${message.author.tag}`,
-          message.author.displayAvatarURL({ dynamic: true })
-        )
-        .setTimestamp()
-        .setColor(Color);
-   
-
-
-      message.channel.send(embed);
     }
   }
 }
