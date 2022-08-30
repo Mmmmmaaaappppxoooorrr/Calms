@@ -9,7 +9,7 @@ module.exports = {
   aliases: ["lvs"],
   description: "bot can leave server by this command",
   category: "owner",
-  useage: "",
+  useage: ">leave @serverid ",
   accessableby: "",
   /**
    * @param {Client} client
