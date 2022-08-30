@@ -4,7 +4,6 @@
 const Discord = require('discord.js');
 const OWNER_ID = "743887896481628190";
 const errorChannel = "1013736720363175967";
-const lineReplyNoMention = require('discord-reply');
 const color = "#ff0000";
 
 module.exports = {
@@ -17,7 +16,7 @@ module.exports = {
         try {
             if (message.author.id != OWNER_ID) {
                 const nopr = new Discord.MessageEmbed().setTimestamp().setColor(`${color}`).setAuthor(`${message.author.username}`, message.author.displayAvatarURL({ dynamic: true })).setDescription(`**Sorry Only 👑HACKERPROᵈᵉᵛ#1498 Can Run This Command! 😔**`)
-                return message.lineReplyNoMention({ embed: nopr })
+                return message.channel.send({ embed: nopr })
             }
             let data = [];
             client.guilds.cache.forEach(x => {
