@@ -24,7 +24,7 @@ db1.on("ready", () => { console.log("quickmongo Database connected!") });
 mongoose.connect(config.database2 ,{ useNewUrlParser: true, useUnifiedTopology: true });
 
 client.commands = new Discord.Collection();
-const Categories = ["moderation", "public", "fun", "gif", "text", "emote", "photo", "bannerPhoto"];
+const Categories = ["moderation", "public", "fun", "gif", "text", "emote", "photo", "Owner"];
 
 Categories.forEach(async function(Category, message) {
 fs.readdir(`./commands/${Category}`, (err, files) => {
