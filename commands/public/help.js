@@ -48,6 +48,27 @@ const Color = "#9700ff";
         .setColor(Color)
 
       message.channel.send(help);
+
+const support = new MessageButton()
+    .setStyle('url')
+    .setURL('https://discord.gg/Hjwu3Uf4mn')
+    .setLabel('Support Server')
+
+const button = new MessageButton()
+    .setStyle('url')
+    .setURL('https://discord.com/api/oauth2/authorize?client_id=914082317344059402&permissions=8&scope=bot')
+    .setLabel('Invite Me')
+ 
+ 
+let row = new MessageActionRow();
+row.addComponent(button);
+row.addComponent(support);
+
+if (!args.length) return message.channel.send({
+  embed: embed,
+  component: row
+})
+
     } else {
       const command =
         client.commands.get(args[0].toLowerCase()) ||
