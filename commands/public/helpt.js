@@ -37,8 +37,14 @@ module.exports = {
                      if(button.id === "delete") {
                        me.delete().then(()=> message.delete())
 
-       }
- });
+                     }
+                })
+
+         
+
+  } 
+}); 
+
     let mybuttonsmsg = await message.channel.send({
         embed: new MessageEmbed()
           .setColor(color)
