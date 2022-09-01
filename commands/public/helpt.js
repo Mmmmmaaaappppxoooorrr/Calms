@@ -19,7 +19,7 @@ module.exports = {
     let mybuttonsmsg = await message.channel.send({
         embed: new MessageEmbed()
           .setColor(color)
-          .setDescription('**Click on The buttons below to redirect**')
+          .setDescription('**Click on The buttons below to redirect**'),
    
         buttons: allbuttons
       });
