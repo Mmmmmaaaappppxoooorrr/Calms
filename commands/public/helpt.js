@@ -19,7 +19,7 @@ module.exports = {
       .setStyle('url')
       .setLabel('Soon')
       .setURL('https://discord.gg/')
-     const trash = new disbut.MessageButton()
+     const trash = new MessageButton()
 
      .setLabel('Delete')
      .setID('delete')
