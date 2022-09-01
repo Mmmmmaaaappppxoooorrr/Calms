@@ -19,22 +19,7 @@ module.exports = {
     let mybuttonsmsg = await message.channel.send({
         embed: new MessageEmbed()
           .setColor(color)
-          .setDescription('** OWNER
-getinvite, leave, serverlist
-EMOTE
-add-emoji, add-these, emojiinfo, emojis-list, emojistats, emojis, jumbo, remove-emoji, remove-these, rename-emoji
-FUN
-clyde, cuddle, Dance, deepfry, dicksize, hug, joke, meme, motivation, dm, pat, say
-GIF
-animal, anime, baby, boy, couple, emoji, girl
-MODERATION
-addrole, bans, purge, rmvrole, nick, unban
-PHOTO
-panimal, pbaby, pboy, pemoji, pgirl
-PUBLIC
-avatar, help, helpyt, links, ping, roleinfo, serverinfo, stats, userinfo
-TEXT
-textarabic, textenglish, textkurdish'),
+          .setDescription('**zzz**'),
    
         buttons: allbuttons
       });
