@@ -29,8 +29,6 @@ module.exports = {
 
       const allbuttons = [invite, support, trash]
 
-const filter = async(btn) => btn.clicker.user.id == message.member.id
-                const collector = me.createButtonCollector(filter)
 
         collector.on("collect", async(button) => {
                      button.reply.defer()
