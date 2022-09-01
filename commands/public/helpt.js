@@ -20,8 +20,22 @@ module.exports = {
         embed: new MessageEmbed()
           .setColor(color)
           .setDescription('**Click on The buttons below to redirect**')
-          .addField("Need Help?", 'Join To Our **Support Server**!')
-          .addField("Use Me?", '**Invite me** now by [Click Here](https://discord.com/api/oauth2/authorize?client_id=914082317344059402&permissions=8&scope=bot) or click on the **button**'),
+          .addField("OWNER
+getinvite, leave, serverlist
+EMOTE
+add-emoji, add-these, emojiinfo, emojis-list, emojistats, emojis, jumbo, remove-emoji, remove-these, rename-emoji
+FUN
+clyde, cuddle, Dance, deepfry, dicksize, hug, joke, meme, motivation, dm, pat, say
+GIF
+animal, anime, baby, boy, couple, emoji, girl
+MODERATION
+addrole, bans, purge, rmvrole, nick, unban
+PHOTO
+panimal, pbaby, pboy, pemoji, pgirl
+PUBLIC
+avatar, help, helpyt, links, ping, roleinfo, serverinfo, stats, userinfo
+TEXT
+textarabic, textenglish, textkurdish')
         buttons: allbuttons
       });
   }
