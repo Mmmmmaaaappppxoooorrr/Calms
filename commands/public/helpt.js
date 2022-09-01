@@ -11,10 +11,32 @@ module.exports = {
   usage: "links",
   run: async (client, message, args) => {
   
-      let invite = new MessageButton().setStyle('url').setLabel('Invite Me').setURL('https://discord.com/api/oauth2/authorize?client_id=914082317344059402&permissions=8&scope=bot')
-      let support = new MessageButton().setStyle('url').setLabel('Soon').setURL('https://discord.gg/')
-     
-      const allbuttons = [invite, support]
+      let invite = new MessageButton()
+      .setStyle('url')
+      .setLabel('Invite Me')
+      .setURL('https://discord.com/api/oauth2/authorize?client_id=914082317344059402&permissions=8&scope=bot')
+      let support = new MessageButton()
+      .setStyle('url')
+      .setLabel('Soon')
+      .setURL('https://discord.gg/')
+     const trash = new disbut.MessageButton()
+
+     .setLabel('Delete')
+     .setID('delete')
+     .setEmoji('🙋‍♀️')
+     .setStyle('red')
+
+
+      const allbuttons = [invite, support, trash]
+
+ const filter = async(btn) => btn.clicker.user.id == message.member.id
+                const collector = me.createButtonCollector(filter)
+
+        collector.on("collect", async(button) => {
+                     button.reply.defer()
+                     if(button.id === "delete") {
+                       me.delete().then(()=> message.delete())
+
 
     let mybuttonsmsg = await message.channel.send({
         embed: new MessageEmbed()
