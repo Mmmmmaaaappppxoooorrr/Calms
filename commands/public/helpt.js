@@ -35,7 +35,7 @@ panimal, pbaby, pboy, pemoji, pgirl
 PUBLIC
 avatar, help, helpyt, links, ping, roleinfo, serverinfo, stats, userinfo
 TEXT
-textarabic, textenglish, textkurdish")
+textarabic, textenglish, textkurdish"),
         buttons: allbuttons
       });
   }
